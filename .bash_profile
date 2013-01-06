@@ -5,7 +5,9 @@ alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias start_redis='redis-server /usr/local/etc/redis.conf'
 alias res='touch tmp/restart.txt'
 alias ls='ls -lsa'
+alias subl='open -a "Sublime Text 2"'
 source ~/.local/bin/bashmarks.sh
+
 
 # Taken from https://gist.github.com/1688857
 export RUBY_HEAP_MIN_SLOTS=1000000
@@ -53,3 +55,4 @@ function prompt_func() {
 }
 PS1_DEFAULT=$PS1
 PROMPT_COMMAND=prompt_func
+
