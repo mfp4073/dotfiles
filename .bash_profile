@@ -6,6 +6,7 @@ alias start_redis='redis-server /usr/local/etc/redis.conf'
 alias res='touch tmp/restart.txt'
 alias ls='ls -lsa'
 alias subl='open -a "Sublime Text 2"'
+alias ..='cd ..'
 source ~/.local/bin/bashmarks.sh
 
 
