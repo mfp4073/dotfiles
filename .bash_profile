@@ -17,6 +17,15 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_HEAP_FREE_MIN=500000
 
+# git
+alias gst='git status' # Warning: gst conflicts with gnu-smalltalk (when used).
+alias gb='git branch'
+alias gco='git checkout'
+alias gcob='git checkout -b '
+alias ga='git add '
+alias gc='git commit'
+alias gg='git grep ' #  A great very FAST search option, easier then `find`
+
 
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
