@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# git ignore global
+rm ~/.gitignore_global
+ln -s ~/dotfiles/.gitignore_global ~/.gitignore_global
+
+# git config
+rm ~/.gitconfig
+ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+
+# bash profile
+rm ~/.bash_profile
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+
+# bash history file
+rm ~/.inputrc
+ln -s ~/dotfiles/inputrc ~/.inputrc
+
+echo "All done!"
