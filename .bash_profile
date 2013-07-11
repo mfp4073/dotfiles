@@ -1,14 +1,25 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=~/bin:$PATH:~/opensource/redis-2.6.14
+export EDITOR=subl
 
-alias start_pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias stop_pg='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias start_redis='redis-server /usr/local/etc/redis.conf'
-alias res='touch tmp/restart.txt'
-alias ls='ls -lsa'
+# Aliases!!
 alias subl='open -a "Sublime Text 2"'
 alias ..='cd ..'
+alias ls="ls -lsa"
+alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias stop_pg="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias start_redis="redis-server /usr/local/etc/redis.conf"
+alias res="touch tmp/restart.txt"
+alias start_mysql='mysql.server start'
+alias stop_mysql='mysql.server stop'
+alias start_es='elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.19.9/config/elasticsearch.yml'
+alias fordev='foreman start -f Procfile.dev'
+alias rake='bundle exec rake'
+alias sidekiq='bundle exec sidekiq'
+alias guard='bundle exec guard'
+alias dropbox="cd ~/Dropbox"
+alias redis="nohup ~/opensource/redis-2.6.14/src/redis-server /usr/local/etc/redis.conf > /tmp/redis.out 2> /tmp/redis.err < /dev/null &"
 source ~/.local/bin/bashmarks.sh
-
 
 # Taken from https://gist.github.com/1688857
 export RUBY_HEAP_MIN_SLOTS=1000000
@@ -65,4 +76,3 @@ function prompt_func() {
 }
 PS1_DEFAULT=$PS1
 PROMPT_COMMAND=prompt_func
-
