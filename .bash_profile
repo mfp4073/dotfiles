@@ -1,11 +1,12 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=~/bin:$PATH:~/opensource/redis-2.6.14
-export EDITOR=subl
+export EDITOR=vim
 
 # Aliases!!
 alias subl='open -a "Sublime Text 2"'
 alias ..='cd ..'
-alias ls="ls -lsa"
+alias ls="ls -aFG"
+alias ll="ls -alG"
 alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_pg="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias start_redis="redis-server /usr/local/etc/redis.conf"
@@ -76,3 +77,7 @@ function prompt_func() {
 }
 PS1_DEFAULT=$PS1
 PROMPT_COMMAND=prompt_func
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
