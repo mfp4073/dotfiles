@@ -49,6 +49,12 @@ WHITE="\[\033[1;37m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
 COLOR_NONE="\[\e[0m\]"
 
+rv(){
+    local v=`ruby -v`
+    local arr=(${v// / })
+    echo ${arr[1]}
+}
+
 function parse_git_branch {
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^# On branch ([^${IFS}]*)"
@@ -68,7 +74,7 @@ function parse_git_branch {
 function prompt_func() {
   git rev-parse --git-dir &> /dev/null
   previous_return_value=$?
-  prompt="\u:\w${state}$(parse_git_branch)${COLOR_NONE} "
+  prompt="\u:\w${state}$(parse_git_branch) $(rv)${COLOR_NONE} "
   if [[ $previous_return_value == 0 ]]; then
     PS1="${prompt}$ "
   else
