@@ -76,3 +76,7 @@ function prompt_func() {
 }
 PS1_DEFAULT=$PS1
 PROMPT_COMMAND=prompt_func
+
+export PATH=/usr/local/share/npm/bin:$PATH
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

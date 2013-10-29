@@ -40,4 +40,6 @@ Thumbs.db
 restart.txt
 
 # Rubymine #
+.idea/
+idea/workspace.xml
 .idea
