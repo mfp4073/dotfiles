@@ -33,5 +33,5 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [user]
-  email = abek1977@gmail.com
-	name = Abraham Kinney
+	email = abe@twtmob.com
+	name = Abe Kinney

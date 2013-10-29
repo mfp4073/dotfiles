@@ -1,11 +1,12 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=~/bin:$PATH:~/opensource/redis-2.6.14
-export EDITOR=subl
+export EDITOR=vim
 
 # Aliases!!
 alias subl='open -a "Sublime Text 2"'
 alias ..='cd ..'
-alias ls="ls -lsa"
+alias ls="ls -aFG"
+alias ll="ls -alG"
 alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_pg="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias start_redis="redis-server /usr/local/etc/redis.conf"
@@ -48,6 +49,12 @@ WHITE="\[\033[1;37m\]"
 LIGHT_GRAY="\[\033[0;37m\]"
 COLOR_NONE="\[\e[0m\]"
 
+rv(){
+    local v=`ruby -v`
+    local arr=(${v// / })
+    echo ${arr[1]}
+}
+
 function parse_git_branch {
   git_status="$(git status 2> /dev/null)"
   branch_pattern="^# On branch ([^${IFS}]*)"
@@ -67,7 +74,7 @@ function parse_git_branch {
 function prompt_func() {
   git rev-parse --git-dir &> /dev/null
   previous_return_value=$?
-  prompt="\u:\w${state}$(parse_git_branch)${COLOR_NONE} "
+  prompt="\u:\w${state}$(parse_git_branch) $(rv)${COLOR_NONE} "
   if [[ $previous_return_value == 0 ]]; then
     PS1="${prompt}$ "
   else
@@ -80,3 +87,7 @@ PROMPT_COMMAND=prompt_func
 export PATH=/usr/local/share/npm/bin:$PATH
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
