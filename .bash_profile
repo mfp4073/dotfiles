@@ -1,5 +1,6 @@
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=~/bin:$PATH:~/opensource/redis-2.6.14
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export EDITOR=vim
 
 # Aliases!!
@@ -84,10 +85,7 @@ function prompt_func() {
 PS1_DEFAULT=$PS1
 PROMPT_COMMAND=prompt_func
 
-export PATH=/usr/local/share/npm/bin:$PATH
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"ss
+[ -s "/Users/abe/.nvm/nvm.sh" ] && . "/Users/abe/.nvm/nvm.sh" # This loads nvm

@@ -35,3 +35,6 @@
 [user]
 	email = abe@twtmob.com
 	name = Abe Kinney
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
