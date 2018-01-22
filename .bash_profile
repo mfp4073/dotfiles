@@ -3,8 +3,22 @@ export PATH=~/bin:$PATH:~/opensource/redis-2.6.14
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export EDITOR=vim
 
+MYPATH=/usr/local/share/npm/bin
+  if [[ ! ":$PATH:" == *":$MYPATH:"* ]] && [ -d "$MYPATH" ]; then
+      export PATH=$PATH:${MYPATH}
+  fi
+unset MYPATH
+
+# CUSTOM TAB TITLE FUNCTION
+function title ()
+{
+    TITLE=$*;
+    export PROMPT_COMMAND='echo -ne "\033]0;$TITLE\007"'
+}
+
 # Aliases!!
-alias subl='open -a "Sublime Text 2"'
+alias subl='open -a "Sublime Text"'
+alias atom='open -a "Atom"'
 alias ..='cd ..'
 alias ls="ls -aFG"
 alias ll="ls -alG"
@@ -89,3 +103,9 @@ PROMPT_COMMAND=prompt_func
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"ss
 [ -s "/Users/abe/.nvm/nvm.sh" ] && . "/Users/abe/.nvm/nvm.sh" # This loads nvm
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/abe/google-cloud-sdk/path.bash.inc' ]; then source '/Users/abe/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/abe/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/abe/google-cloud-sdk/completion.bash.inc'; fi
