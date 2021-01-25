@@ -2,6 +2,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=~/bin:$PATH:~/opensource/redis-2.6.14
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export EDITOR=vim
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 MYPATH=/usr/local/share/npm/bin
   if [[ ! ":$PATH:" == *":$MYPATH:"* ]] && [ -d "$MYPATH" ]; then
@@ -24,6 +25,9 @@ alias ls="ls -aFG"
 alias ll="ls -alG"
 alias start_pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stop_pg="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias start_ms="/usr/local/Cellar/mysql/8.0.23/support-files/mysql.server start"
+alias stop_ms="/usr/local/Cellar/mysql/8.0.23/support-files/mysql.server stop"
+alias restart_ms="/usr/local/Cellar/mysql/8.0.23/support-files/mysql.server restart"
 alias start_redis="redis-server /usr/local/etc/redis.conf"
 alias res="touch tmp/restart.txt"
 alias start_mysql='mysql.server start'
